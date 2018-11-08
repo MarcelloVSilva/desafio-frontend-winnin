@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Context, HOT, NEW, RISING } from './providers/Provider'
+import Conteudo from './Conteudo';
 
 class App extends Component {
+  renderTab(context) {
+    return (
+      <div>
+        <button onClick={() => context.changeTab(HOT)}>hot</button>
+        <button onClick={() => context.changeTab(NEW)}>news</button>
+        <button onClick={() => context.changeTab(RISING)}>rising</button>
+      </div>
+    )
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Context.Consumer>
+        {(context) => (
+          <div>
+            {!context.reddit ? <div>carregando...</div> : <div>{this.renderTab(context)}</div>}
+            {!context.reddit ? <div>carregando...</div> : <div><Conteudo /></div>}
+          </div>
+        )}
+      </Context.Consumer>
     );
   }
 }
 
 export default App;
+
+
