@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Context, HOT, NEW, RISING } from '../providers/Provider'
-import Conteudo from './Conteudo';
+import Conteudo from './conteudo/Conteudo';
 
 class App extends Component {
   renderTab(context) {
