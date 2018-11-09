@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Context, HOT, NEW, RISING } from './providers/Provider'
+import { Context, HOT, NEW, RISING } from '../providers/Provider'
 
 class Conteudo extends Component {
     conteudoAtivo(context) {
