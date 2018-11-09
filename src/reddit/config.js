@@ -3,10 +3,10 @@ import snoowrap from 'snoowrap';
 const redditInterface = () => new Promise((resolve, reject) => {
     const reddit = new snoowrap({
         userAgent: 'winnin',
-        clientId: 'IE9d1OXIWqq6UQ',
-        clientSecret: 'MiphccB4ePA38VVGBQXfX0hvqAk',
-        username: 'MarcelloVSilva',
-        password: 'hashtag#reddit'
+        clientId: 'sbpY3HgVOCGXEQ',
+        clientSecret: '3HDlt0u0Z4GnPOYI1bZZ-az-p88',
+        username: 'testebrdev',
+        password: 'admin.teste'
     })
     resolve(reddit)
 })
