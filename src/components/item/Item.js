@@ -1,23 +1,3 @@
-// import React from 'react';
-// import './Item.css'
-
-// export class Item extends React.Component {
-//     render() {
-//         return (
-//             <div className="subreddit">
-//                 <div className="thumb">
-//                     <img alt="thumb" src={this.props.thumbnail} />
-//                 </div>
-//                 <div className="descricao">
-//                     <div>{this.props.titulo}</div>
-//                     <div>{this.props.timestampCriacao}</div>
-//                     <div>{this.props.autor}</div>
-//                     <div>{this.props.dominio}</div>
-//                 </div>
-//             </div>);
-//     }
-// }
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -38,7 +18,21 @@ const styles = theme => ({
         alignItens: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-
+        '&>div': {
+            display: 'flex',
+            alignItens: 'center',
+        }
+    },
+    thumb: {
+        marginRight: '1vmin'
+    },
+    self: {
+        background: 'url(//b.thumbs.redditmedia.com/XWINAyK1fHqmkcRwoZGwsASV7l6fl_cRG_5u_o9Dwqk.png) -73px -76px',
+    },
+    customSizeAvatar: {
+        backgroundColor: '#d2dbe0',
+        width: '64px',
+        height: '64px',
     }
 });
 
@@ -48,26 +42,32 @@ function Item(props) {
     return (
         <div className={classes.wrapper}>
             <Paper className={classes.root} elevation={1}>
-                <div className="thumb">
-                    <Avatar src={thumbnail} />
+                <div className={classes.thumb}>
+                    {thumbnail === 'self' ?
+                        <Avatar className={`${classes.self} ${classes.customSizeAvatar}`} /> :
+                        <Avatar className={classes.customSizeAvatar} src={thumbnail} />
+                    }
                 </div>
-                <Typography variant="h5" component="h3">
-                    {titulo}
-                </Typography>
-                <Typography component="p">
-                    {`Enviado ${queHorasEnviou(timestampCriacao)} por ${autor}`}
-                </Typography>
-                <Typography component="p">
-                    {dominio}
-                </Typography>
+                <div>
+                    <Typography variant="h5" component="h3">
+                        {titulo}
+                    </Typography>
+                    <Typography component="p">
+                        {`Enviado ${queHorasEnviou(timestampCriacao)} por ${autor}`}
+                    </Typography>
+                    <Typography component="p">
+                        {dominio}
+                    </Typography>
+                </div>
             </Paper>
         </div>
     );
 }
 
 const queHorasEnviou = (ts) => {
+    debugger
     const z = new Date().getTime() - ts;
-    const days = parseInt((z / (60 * 60 * 24 * 1000)))
+    const days = parseInt((z / (60 * 60 * 24 * 30 * 12 * 1000)))
     return days === 0 ? 'Hoje' :
         days === 1 ? 'Ontem' : `a ${days} dias`
 }

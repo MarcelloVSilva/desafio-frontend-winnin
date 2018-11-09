@@ -27,10 +27,10 @@ export class Provider extends Component {
 
         const hot = await getHot(reddit)
         this.setState({ hot })
-
+        
         const news = await getNew(reddit)
         this.setState({ news })
-
+        
         const rising = await getRising(reddit)
         this.setState({ rising })
     }

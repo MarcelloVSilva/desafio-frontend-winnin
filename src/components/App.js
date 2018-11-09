@@ -19,8 +19,10 @@ class App extends Component {
       <Context.Consumer>
         {(context) => (
           <Fragment>
-            <div id='tituloDaPagina'>ReactJs</div>
-            {!context.reddit ? <div>carregando...</div> : <div>{this.renderTab(context)}</div>}
+            <div id="topo">
+              <div id='tituloDaPagina'>ReactJs</div>
+              {!context.reddit ? <div>carregando...</div> : <div>{this.renderTab(context)}</div>}
+            </div>
             {!context.reddit ? <div>carregando...</div> : <Fragment><Conteudo /></Fragment>}
           </Fragment>
         )}
