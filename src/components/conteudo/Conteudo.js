@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Context, HOT, NEW, RISING } from '../../providers/Provider'
 import Itens from '../itens/Itens';
 
@@ -12,7 +12,7 @@ class Conteudo extends Component {
             case RISING:
                 return (<Itens abaAtiva="rising" />)
             default:
-                return (<div>carregando</div>)
+                return (<Fragment>carregando</Fragment>)
         }
     }
 
@@ -20,7 +20,7 @@ class Conteudo extends Component {
         return (
             <Context.Consumer>
                 {(context) => (
-                    <div>{this.conteudoAtivo(context)}</div>
+                    <Fragment>{this.conteudoAtivo(context)}</Fragment>
                 )}
             </Context.Consumer>
         );

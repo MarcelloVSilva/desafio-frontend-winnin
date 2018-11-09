@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Context, HOT, NEW, RISING } from '../providers/Provider'
 import Conteudo from './conteudo/Conteudo';
+import './App.css'
 
 class App extends Component {
   renderTab(context) {
     return (
-      <div>
-        <button onClick={() => context.changeTab(HOT)}>hot</button>
-        <button onClick={() => context.changeTab(NEW)}>news</button>
-        <button onClick={() => context.changeTab(RISING)}>rising</button>
+      <div id="tabs">
+        <button className="tabBtn" onClick={() => context.changeTab(HOT)}>Hot</button>
+        <button className="tabBtn" onClick={() => context.changeTab(NEW)}>News</button>
+        <button className="tabBtn" onClick={() => context.changeTab(RISING)}>Rising</button>
       </div>
     )
   }
@@ -17,10 +18,11 @@ class App extends Component {
     return (
       <Context.Consumer>
         {(context) => (
-          <div>
+          <Fragment>
+            <div id='tituloDaPagina'>ReactJs</div>
             {!context.reddit ? <div>carregando...</div> : <div>{this.renderTab(context)}</div>}
-            {!context.reddit ? <div>carregando...</div> : <div><Conteudo /></div>}
-          </div>
+            {!context.reddit ? <div>carregando...</div> : <Fragment><Conteudo /></Fragment>}
+          </Fragment>
         )}
       </Context.Consumer>
     );

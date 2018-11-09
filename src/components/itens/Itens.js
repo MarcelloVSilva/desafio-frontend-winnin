@@ -1,6 +1,6 @@
 import React from 'react';
 import { Context } from '../../providers/Provider';
-import { Item } from "../item/Item";
+import Item from "../item/Item";
 
 class Itens extends React.Component {
     render() {
