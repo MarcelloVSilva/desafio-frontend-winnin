@@ -26,5 +26,23 @@ export const styles = theme => ({
         backgroundColor: '#d2dbe0',
         width: '64px',
         height: '64px',
+    },
+    autorName: {
+        color: '#029c96',
+        '&:hover': {
+            cursor: 'pointer',
+            textDecoration: 'underline'
+        }
+    },
+    dataCriacao: {
+        all: 'unset',
+        color: '#908b8b'
+    },
+    dominio: {
+        color: '#908b8b',
+        '&:hover': {
+            cursor: 'pointer',
+            textDecoration: 'underline'
+        }
     }
 });

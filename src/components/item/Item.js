@@ -22,10 +22,26 @@ function Item(props) {
                         {titulo}
                     </Typography>
                     <Typography component="p">
-                        {`Enviado ${queHorasEnviou(timestampCriacao)} por ${autor.name}`}
+                        {'Enviado '}
+                        <a
+                            className={classes.dataCriacao}>{queHorasEnviou(timestampCriacao)}</a>
+                        {' por '}
+                        <a
+                            onClick={() => window.open(`https://reddit.com/user/${autor.name}`, '_blank')}
+                            className={classes.autorName}>
+                            {autor.name}
+                        </a>
                     </Typography>
                     <Typography component="p">
-                        {dominio}
+                        <a
+                            onClick={() => {
+                                dominio.indexOf('self') > -1 ?
+                                    window.open(`https://reddit.com/r/reactjs`) :
+                                    window.open(`https://reddit.com/damain/${dominio}`, '_blank')
+                            }}
+                            className={classes.dominio}>
+                            {dominio}
+                        </a>
                     </Typography>
                 </div>
             </Paper>
@@ -34,7 +50,7 @@ function Item(props) {
 }
 
 const queHorasEnviou = (ts) => {
-    const days = parseInt(ts / (1000 * 60 * 60 * 24))
+    const days = parseInt(ts / (1000 * 60 * 60 * 24 * 1000))
     return days === 0 ? 'Hoje' :
         days === 1 ? 'Ontem' : `a ${days} dias`
 }

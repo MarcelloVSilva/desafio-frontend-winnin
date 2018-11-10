@@ -11,7 +11,10 @@ export const RISING = 3
 export class Provider extends Component {
     constructor(props) {
         super(props)
-        this.changeTab = (abaAtiva) => this.setState({ abaAtiva })
+        this.changeTab = (abaAtiva) => {
+            this.setState({ abaAtiva })
+            window.scroll(0, 0)
+        }
         this.state = {
             reddit: null,
             hot: null,
@@ -27,10 +30,10 @@ export class Provider extends Component {
 
         const hot = await getHot(reddit)
         this.setState({ hot })
-        
+
         const news = await getNew(reddit)
         this.setState({ news })
-        
+
         const rising = await getRising(reddit)
         this.setState({ rising })
     }
