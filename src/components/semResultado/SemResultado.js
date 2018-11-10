@@ -4,7 +4,7 @@ import './SemResultado.css'
 class SemResultado extends React.Component {
     render() {
         return (
-            <p id="noresults" class="error"/>
+            <p id="noresults" className="error"/>
         )
     }
 }

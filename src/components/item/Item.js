@@ -8,7 +8,6 @@ import { styles } from './styles';
 
 function Item(props) {
     const { classes, thumbnail, titulo, timestampCriacao, autor, dominio } = props;
-
     return (
         <div className={classes.wrapper}>
             <Paper className={classes.root} elevation={1}>
@@ -23,7 +22,7 @@ function Item(props) {
                         {titulo}
                     </Typography>
                     <Typography component="p">
-                        {`Enviado ${queHorasEnviou(timestampCriacao)} por ${autor}`}
+                        {`Enviado ${queHorasEnviou(timestampCriacao)} por ${autor.name}`}
                     </Typography>
                     <Typography component="p">
                         {dominio}
@@ -35,8 +34,7 @@ function Item(props) {
 }
 
 const queHorasEnviou = (ts) => {
-    const z = new Date().getTime() - ts;
-    const days = parseInt((z / (60 * 60 * 24 * 30 * 12 * 1000)))
+    const days = parseInt(ts / (1000 * 60 * 60 * 24))
     return days === 0 ? 'Hoje' :
         days === 1 ? 'Ontem' : `a ${days} dias`
 }

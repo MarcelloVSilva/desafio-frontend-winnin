@@ -13,15 +13,16 @@ class Itens extends React.Component {
                     {!context[this.props.abaAtiva] ?
                         <Carregando /> :
                         context[this.props.abaAtiva].length === 0 ?
-                        <SemResultado /> :
-                        context[this.props.abaAtiva].map((item) => {
-                            return <Item 
-                                        thumbnail={item.thumbnail} 
-                                        titulo={item.title} 
-                                        timestampCriacao={item.created} 
-                                        autor={item.author_fullname} 
-                                        dominio={item.domain} />;
-                        })}
+                            <SemResultado /> :
+                            context[this.props.abaAtiva].map((item, idx) => {
+                                return <Item
+                                    key={idx}
+                                    thumbnail={item.thumbnail}
+                                    titulo={item.title}
+                                    timestampCriacao={item.created}
+                                    autor={{...item.author}}
+                                    dominio={item.domain} />;
+                            })}
                 </div>
             )}
         </Context.Consumer>);
