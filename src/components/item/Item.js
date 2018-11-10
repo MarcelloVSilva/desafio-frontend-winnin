@@ -37,7 +37,7 @@ function Item(props) {
                             onClick={() => {
                                 dominio.indexOf('self') > -1 ?
                                     window.open(`https://reddit.com/r/reactjs`) :
-                                    window.open(`https://reddit.com/damain/${dominio}`, '_blank')
+                                    window.open(`https://reddit.com/domain/${dominio}`, '_blank')
                             }}
                             className={classes.dominio}>
                             {dominio}
