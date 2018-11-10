@@ -27,7 +27,7 @@ const styles = theme => ({
         marginRight: '1vmin'
     },
     self: {
-        background: 'url(//b.thumbs.redditmedia.com/XWINAyK1fHqmkcRwoZGwsASV7l6fl_cRG_5u_o9Dwqk.png) -73px -76px',
+        background: 'url(//b.thumbs.redditmedia.com/XWINAyK1fHqmkcRwoZGwsASV7l6fl_cRG_5u_o9Dwqk.png) -73px -75px',
     },
     customSizeAvatar: {
         backgroundColor: '#d2dbe0',
@@ -65,7 +65,6 @@ function Item(props) {
 }
 
 const queHorasEnviou = (ts) => {
-    debugger
     const z = new Date().getTime() - ts;
     const days = parseInt((z / (60 * 60 * 24 * 30 * 12 * 1000)))
     return days === 0 ? 'Hoje' :
