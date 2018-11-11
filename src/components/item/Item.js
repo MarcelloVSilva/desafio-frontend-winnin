@@ -8,49 +8,60 @@ import { styles } from './styles';
 
 const rootUrl = 'https://reddit.com/'
 
-function Item(props) {
-    const { classes, thumbnail, titulo, tituloUri, autor, dominio } = props;
-    return (
-        <div className={classes.wrapper}>
-            <Paper className={classes.root} elevation={1}>
-                <div className={classes.thumb}>
-                    {thumbnail === 'self' ?
-                        <Avatar className={`${classes.self} ${classes.customSizeAvatar}`} /> :
-                        <Avatar className={classes.customSizeAvatar} src={thumbnail} />
-                    }
-                </div>
-                <div>
-                    <Typography variant="h5" component="h3">
-                        <div 
-                            className={classes.titulo}
-                            onClick={()=> window.open(`${rootUrl}${tituloUri}`)}>
-                            {titulo}
-                        </div>
-                    </Typography>
-                    <Typography component="div">
-                        {'Enviado '}
-                        {' por '}
-                        <button
-                            onClick={() => window.open(`${rootUrl}user/${autor.name}`)}
-                            className={classes.autorName}>
-                            <b>{autor.name}</b>
-                        </button>
-                    </Typography>
-                    <Typography component="div">
-                        <button
-                            onClick={() => {
-                                dominio.indexOf('self') > -1 ?
-                                    window.open(`${rootUrl}r/reactjs`) :
-                                    window.open(`${rootUrl}domain/${dominio}`)
-                            }}
-                            className={classes.dominio}>
-                            {dominio}
-                        </button>
-                    </Typography>
-                </div>
-            </Paper>
-        </div>
-    );
+let count = 1
+class Item extends React.Component {
+    componentDidMount() {
+        const self = this
+        setTimeout(() => {
+            self._reactInternalFiber.child.stateNode.style.opacity = 1
+        }, 100 * count++)
+    }
+    componentWillUnmount() {
+        count = 0
+    }
+    render() {
+        return (
+            <div className={this.props.classes.wrapper}>
+                <Paper className={this.props.classes.root} elevation={1}>
+                    <div className={this.props.classes.thumb}>
+                        {this.props.thumbnail === 'self' ?
+                            <Avatar className={`${this.props.classes.self} ${this.props.classes.customSizeAvatar}`} /> :
+                            <Avatar className={this.props.classes.customSizeAvatar} src={this.props.thumbnail} />
+                        }
+                    </div>
+                    <div>
+                        <Typography variant="h5" component="h3">
+                            <div
+                                className={this.props.classes.titulo}
+                                onClick={() => window.open(`${rootUrl}${this.props.tituloUri}`)}>
+                                {this.props.titulo}
+                            </div>
+                        </Typography>
+                        <Typography component="div">
+                            {'Enviado '}
+                            {' por '}
+                            <button
+                                onClick={() => window.open(`${rootUrl}user/${this.props.autor.name}`)}
+                                className={this.props.classes.autorName}>
+                                <b>{this.props.autor.name}</b>
+                            </button>
+                        </Typography>
+                        <Typography component="div">
+                            <button
+                                onClick={() => {
+                                    this.props.dominio.indexOf('self') > -1 ?
+                                        window.open(`${rootUrl}r/reactjs`) :
+                                        window.open(`${rootUrl}domain/${this.props.dominio}`)
+                                }}
+                                className={this.props.classes.dominio}>
+                                {this.props.dominio}
+                            </button>
+                        </Typography>
+                    </div>
+                </Paper>
+            </div>
+        );
+    }
 }
 
 // <div className={classes.dataCriacao}>{queHorasEnviou(timestampCriacao)}</div>                

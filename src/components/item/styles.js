@@ -5,6 +5,7 @@ export const styles = theme => ({
         paddingBottom: theme.spacing.unit * 2,
         marginTop: '1em',
         width: '65%',
+        transition: 'background-color 0.3s ease',
         '&:hover': {
             backgroundColor:'#029c9659'
         }
@@ -14,6 +15,8 @@ export const styles = theme => ({
         alignItens: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
+        opacity: 0,
+        transition: 'opacity 1s',
         '&>div': {
             display: 'flex',
             alignItens: 'center',

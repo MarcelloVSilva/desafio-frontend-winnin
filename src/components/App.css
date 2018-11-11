@@ -72,7 +72,6 @@
 }
 
 .tabBtn:hover {
-  animation-fill-mode: both;
   cursor: pointer;
   transition: all 0.2s;
   cursor: pointer;
