@@ -14,11 +14,12 @@ class Itens extends React.Component {
                         <Carregando /> :
                         context[this.props.abaAtiva].length === 0 ?
                             <SemResultado /> :
-                            context[this.props.abaAtiva].map((item, idx) => {
+                            context[this.props.abaAtiva].map((item) => {
                                 return <Item
-                                    key={idx}
+                                    key={item.id}
                                     thumbnail={item.thumbnail}
                                     titulo={item.title}
+                                    tituloUri={item.comments._uri}
                                     timestampCriacao={item.created}
                                     autor={{...item.author}}
                                     dominio={item.domain} />;

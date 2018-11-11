@@ -4,7 +4,10 @@ export const styles = theme => ({
         paddingTop: theme.spacing.unit * 2,
         paddingBottom: theme.spacing.unit * 2,
         marginTop: '1em',
-        width: '65%'
+        width: '65%',
+        '&:hover': {
+            backgroundColor:'#029c9659'
+        }
     },
     wrapper: {
         display: 'flex',
@@ -27,7 +30,13 @@ export const styles = theme => ({
         width: '64px',
         height: '64px',
     },
+    titulo: {
+        '&:hover': {
+            cursor: 'pointer'
+        }
+    },
     autorName: {
+        all: 'unset',
         color: '#029c96',
         '&:hover': {
             cursor: 'pointer',
@@ -35,11 +44,11 @@ export const styles = theme => ({
         }
     },
     dataCriacao: {
-        all: 'unset',
-        color: '#908b8b'
+        all: 'unset'
     },
     dominio: {
-        color: '#908b8b',
+        all: 'unset',
+        color: '#676767',
         '&:hover': {
             cursor: 'pointer',
             textDecoration: 'underline'
