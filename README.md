@@ -15,4 +15,3 @@ $ npm start
 ```console
 $ npm test
 ```
-obs: Os testes as vezes falham devido ao assincronismo.
